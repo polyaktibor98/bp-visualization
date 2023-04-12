@@ -22,12 +22,15 @@ for row in data_rows:
     diastolic.append(int(splitted_row[2]))
     pulse.append(int(splitted_row[3]))
 
+concor_start_date = datetime.strptime("2023.03.24.", "%Y.%m.%d.").date()
+
 plt.title("Blood pressure")
 plt.xlabel("Dates")
 plt.ylabel("mmHg  &  /min")
 plt.plot(dates, systolic, label="SYS", marker="o", color="blue")
 plt.plot(dates, diastolic, label="DIA", marker="o", color="green")
 plt.plot(dates, pulse, label="PUL", marker="o", color="red", linewidth="2.5", markersize="8")
+plt.axvline(x=concor_start_date, label="Concor start date", color="black", linewidth="2.5")
 plt.legend()
 plt.grid(True)
 plt.show()
